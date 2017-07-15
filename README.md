@@ -2,7 +2,7 @@
 
 Entity helpers for Redux
 
-:construction:
+:construction: This project is still in its early stages, you should expect things to break :construction:
 
 ```bash
 $ yarn add redux-entity-helpers
