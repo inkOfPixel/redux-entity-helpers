@@ -1,6 +1,12 @@
 /* @flow */
 
-export default function sayHello(name: string): number {
-	console.log(`hello ${name}`);
-	return 1;
-}
+import { fetchEntity } from "./actions";
+import { createEntityReducer } from "./reducer";
+
+export default {
+	createEntityReducer,
+	fetchEntity
+};
+
+export { createEntityReducer } from "./reducer";
+export { fetchEntity } from "./actions";
