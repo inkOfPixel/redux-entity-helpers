@@ -2,7 +2,7 @@
 
 Entity helpers for Redux
 
-[![npm](https://img.shields.io/npm/v/npm.svg)](https://www.npmjs.com/package/redux-entity-helpers)
+[![npm](https://img.shields.io/npm/v/redux-entity-helpers.svg)](https://www.npmjs.com/package/redux-entity-helpers)
 
 :construction: This project is still in its early stages, you should expect things to break :construction:
 
