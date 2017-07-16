@@ -19,7 +19,13 @@ export type ReducerOptions = {
 };
 
 export function createEntityReducer(name: string, options?: ReducerOptions) {
-	const reducer = (state: EntityState, action: Action): EntityState => {
+	const initialState = {
+		allIds: [],
+		byId: {},
+		isFetching: false
+	};
+
+	const reducer = (state: EntityState = initialState, action: Action): EntityState => {
 		switch (action.type) {
 			case "FETCH_ENTITY":
 				return handleFetchEntity(state, action);
