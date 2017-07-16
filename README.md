@@ -12,7 +12,7 @@ or
 $ npm install --save redux-entity-helpers
 ```
 
-You also need to instal [Redux Thunk](https://github.com/gaearon/redux-thunk).
+You also need to install [Redux Thunk](https://github.com/gaearon/redux-thunk).
 
 ## Redux Entity State Shape
 
