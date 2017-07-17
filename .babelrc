@@ -1,14 +1,7 @@
 {
 	"presets": [
 		"flow",
-		[
-			"latest",
-			{
-				"es2015": {
-					"modules": false
-				}
-			}
-		],
+		"env",
 		"stage-3"
 	],
 	"plugins": []

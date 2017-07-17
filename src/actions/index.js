@@ -5,7 +5,7 @@ import type {
 	ReduxEntityAction
 } from "./types";
 
-import type { EntitiesById } from "../reducer";
+import type { EntitiesById } from "../reducer/types";
 
 type FetchOptions = {
 	shouldMerge?: boolean

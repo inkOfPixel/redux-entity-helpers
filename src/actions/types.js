@@ -1,6 +1,6 @@
 /* @flow */
 
-import type { EntitiesById } from "../reducer";
+import type { EntitiesById } from "../reducer/types";
 
 export type Action = { type: $Subtype<string> };
 export type ReduxEntityAction =

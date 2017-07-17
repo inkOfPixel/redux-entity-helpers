@@ -1,12 +1,12 @@
 /* @flow */
 
 import { fetchEntity } from "./actions";
-import { createEntityReducer } from "./reducer";
+import createEntityReducer from "./reducer/createEntityReducer";
 
 export default {
 	createEntityReducer,
 	fetchEntity
 };
 
-export { createEntityReducer } from "./reducer";
+export { default as createEntityReducer } from "./reducer/createEntityReducer";
 export { fetchEntity } from "./actions";

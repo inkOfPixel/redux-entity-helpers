@@ -5,6 +5,7 @@ import type {
 	FetchEntityAction,
 	EntityFetchedAction
 } from "../actions/types";
+import type { EntitiesById } from "./types";
 
 export type EntityState = {
 	allIds: Array<string>,
@@ -12,13 +13,11 @@ export type EntityState = {
 	isFetching: boolean
 };
 
-export type EntitiesById = { [id: string]: any };
-
 export type ReducerOptions = {
 	mergeEntities?: (oldEntities: EntitiesById, fetchedEntities: EntitiesById) => EntitiesById
 };
 
-export function createEntityReducer(name: string, options?: ReducerOptions) {
+export default function createEntityReducer(name: string, options?: ReducerOptions) {
 	const initialState = {
 		allIds: [],
 		byId: {},

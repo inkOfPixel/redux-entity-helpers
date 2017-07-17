@@ -1,59 +1,52 @@
 {
-  "name": "redux-entity-helpers",
-  "version": "0.0.2",
-  "description": "Helpers for redux entities management",
-  "main": "lib/index.js",
-  "repository": "https://github.com/inkOfPixel/redux-entity-helpers",
-  "author": "Massimo De Marchi <massimodemarchi91@gmail.com>",
-  "license": "MIT",
-  "files": [
-    "lib",
-    "es",
-    "src",
-    "dist"
-  ],
-  "scripts": {
-    "clean": "rimraf lib dist es",
-    "build": "yarn run build:commonjs && yarn run build:umd && yarn run build:umd:min && yarn run build:es",
-    "prepublish": "yarn run clean && yarn run test && yarn run build",
-    "posttest": "yarn run lint",
-    "lint": "eslint src test",
-    "test": "jest",
-    "build:commonjs": "cross-env BABEL_ENV=commonjs babel src --out-dir lib",
-    "build:es": "cross-env BABEL_ENV=es babel src --out-dir es",
-    "build:umd": "cross-env BABEL_ENV=commonjs NODE_ENV=development webpack",
-    "build:umd:min": "cross-env BABEL_ENV=commonjs NODE_ENV=production webpack"
-  },
-  "devDependencies": {
-    "babel-cli": "6.24.1",
-    "babel-core": "6.25.0",
-    "babel-eslint": "7.2.3",
-    "babel-jest": "20.0.3",
-    "babel-loader": "7.1.1",
-    "babel-preset-flow": "6.23.0",
-    "babel-preset-latest": "6.24.1",
-    "babel-preset-stage-3": "6.24.1",
-    "cross-env": "5.0.1",
-    "eslint": "3.19.0",
-    "eslint-config-airbnb": "15.0.2",
-    "eslint-import-resolver-webpack": "0.8.3",
-    "eslint-plugin-flowtype": "2.35.0",
-    "eslint-plugin-import": "2.7.0",
-    "eslint-plugin-jsx-a11y": "5.1.1",
-    "eslint-plugin-react": "7.1.0",
-    "flow-bin": "0.50.0",
-    "jest": "20.0.4",
-    "rimraf": "2.6.1",
-    "webpack": "3.2.0",
-    "webpack-node-externals": "1.6.0"
-  },
-  "jest": {
-    "moduleFileExtensions": [
-      "js"
-    ],
-    "moduleDirectories": [
-      "node_modules",
-      "src"
-    ]
-  }
+	"name": "redux-entity-helpers",
+	"version": "0.0.2",
+	"description": "Helpers for redux entities management",
+	"main": "lib/index.js",
+	"repository": "https://github.com/inkOfPixel/redux-entity-helpers",
+	"author": "Massimo De Marchi <massimodemarchi91@gmail.com>",
+	"license": "MIT",
+	"files": [
+		"lib",
+		"es",
+		"src",
+		"dist"
+	],
+	"scripts": {
+		"clean": "rimraf lib dist es",
+		"build": "yarn run build:commonjs && yarn run build:umd && yarn run build:umd:min && yarn run build:es",
+		"prepublish": "yarn run clean && yarn run test && yarn run build",
+		"posttest": "yarn run lint",
+		"lint": "eslint src test",
+		"test": "jest",
+		"build:commonjs": "cross-env BABEL_ENV=commonjs babel src --out-dir lib --ignore **/*.test.js",
+		"build:es": "cross-env BABEL_ENV=es babel src --out-dir es  --ignore **/*.test.js",
+		"build:umd": "cross-env BABEL_ENV=commonjs NODE_ENV=development webpack",
+		"build:umd:min": "cross-env BABEL_ENV=commonjs NODE_ENV=production webpack"
+	},
+	"devDependencies": {
+		"babel-cli": "6.24.1",
+		"babel-core": "6.25.0",
+		"babel-eslint": "7.2.3",
+		"babel-jest": "20.0.3",
+		"babel-loader": "7.1.1",
+		"babel-preset-env": "^1.6.0",
+		"babel-preset-flow": "6.23.0",
+		"babel-preset-stage-3": "6.24.1",
+		"cross-env": "5.0.1",
+		"eslint": "3.19.0",
+		"eslint-config-airbnb": "15.0.2",
+		"eslint-import-resolver-webpack": "0.8.3",
+		"eslint-plugin-flowtype": "2.35.0",
+		"eslint-plugin-import": "2.7.0",
+		"eslint-plugin-jsx-a11y": "5.1.1",
+		"eslint-plugin-react": "7.1.0",
+		"flow-bin": "0.50.0",
+		"jest": "20.0.4",
+		"redux": "3.7.2",
+		"redux-thunk": "2.2.0",
+		"rimraf": "2.6.1",
+		"webpack": "3.2.0",
+		"webpack-node-externals": "1.6.0"
+	}
 }
