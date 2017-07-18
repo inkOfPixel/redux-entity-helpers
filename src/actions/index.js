@@ -27,7 +27,7 @@ export function fetchEntity(name: string, promise: Promise<EntitiesById>, option
 			}
 			const shouldMerge = options !== undefined && options !== null && options.shouldMerge === true;
 			dispatch({
-				type: "ENTITY_FETCHED",
+				type: "@@redux-entity-helpers/ENTITY_FETCHED",
 				payload: data,
 				meta: {
 					entityName: name,
@@ -36,7 +36,7 @@ export function fetchEntity(name: string, promise: Promise<EntitiesById>, option
 			});
 		} catch (error) {
 			dispatch({
-				type: "ENTITY_FETCHED",
+				type: "@@redux-entity-helpers/ENTITY_FETCHED",
 				error: true,
 				payload: error,
 				meta: {
@@ -49,7 +49,7 @@ export function fetchEntity(name: string, promise: Promise<EntitiesById>, option
 
 function fetchEntityAction(name: string): ReduxEntityAction {
 	return {
-		type: "FETCH_ENTITY",
+		type: "@@redux-entity-helpers/FETCH_ENTITY",
 		meta: {
 			entityName: name
 		}

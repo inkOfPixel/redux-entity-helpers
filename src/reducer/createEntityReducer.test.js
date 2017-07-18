@@ -41,7 +41,6 @@ describe("test createEntityReducer helper", () => {
 	});
 
 	test("store with partial initial state", () => {
-		// const mockReducer = jest.fn(productReducer);
 		const reducers = combineReducers({
 			products: productReducer
 		});

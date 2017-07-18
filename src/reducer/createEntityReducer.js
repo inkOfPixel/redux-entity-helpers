@@ -26,9 +26,9 @@ export default function createEntityReducer(name: string, options?: ReducerOptio
 
 	const reducer = (state: EntityState = initialState, action: Action): EntityState => {
 		switch (action.type) {
-			case "FETCH_ENTITY":
+			case "@@redux-entity-helpers/FETCH_ENTITY":
 				return handleFetchEntity(state, action);
-			case "ENTITY_FETCHED":
+			case "@@redux-entity-helpers/ENTITY_FETCHED":
 				return handleEntityFetched(state, action);
 			default:
 				return state;

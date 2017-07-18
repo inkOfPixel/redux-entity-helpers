@@ -13,21 +13,21 @@ export type Dispatch = (action: ReduxEntityAction | ThunkAction | Array<ReduxEnt
 export type PromiseAction = Promise<ReduxEntityAction>;
 
 export type FetchEntityAction = {|
-	type: "FETCH_ENTITY",
+	type: "@@redux-entity-helpers/FETCH_ENTITY",
 	meta: {
 		entityName: string
 	}
 |};
 
 export type EntityFetchedAction = {|
-	type: "ENTITY_FETCHED",
+	type: "@@redux-entity-helpers/ENTITY_FETCHED",
 	payload: EntitiesById,
 	meta: {
 		entityName: string,
 		shouldMerge: boolean
 	}
 |} | {|
-	type: "ENTITY_FETCHED",
+	type: "@@redux-entity-helpers/ENTITY_FETCHED",
 	error: true,
 	payload: Error,
 	meta: {
