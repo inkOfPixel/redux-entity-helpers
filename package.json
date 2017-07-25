@@ -1,6 +1,6 @@
 {
 	"name": "redux-entity-helpers",
-	"version": "0.0.5",
+	"version": "0.0.6",
 	"description": "Helpers for redux entities management",
 	"main": "lib/index.js",
 	"repository": "https://github.com/inkOfPixel/redux-entity-helpers",
