@@ -5,7 +5,7 @@ import createEntityReducer from "./createEntityReducer.js";
 describe("test createEntityReducer helper", () => {
 	const productReducer = createEntityReducer("products");
 	const fetchEntityAction = {
-		type: "FETCH_ENTITY",
+		type: "@@redux-entity-helpers/FETCH_ENTITY",
 		meta: {
 			entityName: "products"
 		}
