@@ -49,7 +49,7 @@
 		"new-cap": 1,
 		"no-mixed-operators": ["error", { "allowSamePrecedence": true }],
 		"no-param-reassign": "warn",
-		"no-plusplus": ["error", { "allowForLoopAfterthoughts": true }],
+		"no-plusplus": "off",
 		"no-tabs": "off",
 		"no-trailing-spaces": "off",
 		"no-underscore-dangle": "off",

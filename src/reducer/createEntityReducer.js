@@ -1,16 +1,13 @@
 /* @flow */
 
-import type {
-	Action,
-	FetchEntityAction,
-	EntityFetchedAction
-} from "../actions/types";
-import type { EntitiesById } from "./types";
+import type { Action, EntitiesById, ID } from "types";
+import type { FetchEntityAction, EntityFetchedAction } from "actions/fetchEntity";
 
 export type EntityState = {
 	allIds: Array<string>,
 	byId: EntitiesById,
-	isFetching: boolean
+	fetchingIds: Array<ID>,
+	requests: Array<string>
 };
 
 export type ReducerOptions = {
@@ -21,7 +18,8 @@ export default function createEntityReducer(name: string, options?: ReducerOptio
 	const initialState = {
 		allIds: [],
 		byId: {},
-		isFetching: false
+		fetchingIds: [],
+		requests: []
 	};
 
 	const reducer = (state: EntityState = initialState, action: Action): EntityState => {
@@ -36,30 +34,30 @@ export default function createEntityReducer(name: string, options?: ReducerOptio
 	};
 
 	function handleFetchEntity(state: EntityState, action: FetchEntityAction): EntityState {
-		if (action.meta.entityName === name) {
-			return {
+		const { meta, payload } = action;
+		if (meta.entityName === name) {
+			const newState = {
 				...state,
-				isFetching: true
+				requests: [...state.requests, meta.requestId]
 			};
+			if (Array.isArray(payload.ids) && payload.ids.length > 0) {
+				newState.fetchingIds = [...newState.fetchingIds, ...payload.ids];
+			}
+			return newState;
 		}
 		return state;
 	}
 
 	function handleEntityFetched(state: EntityState, action: EntityFetchedAction): EntityState {
-		if (action.meta.entityName === name) {
-			if (action.error) {
-				return {
-					...state,
-					isFetching: false
-				};
-			}
-			const entitiesById = mergeEntities(state.byId, action.payload);
-			return {
-				...state,
-				isFetching: false,
-				byId: entitiesById,
-				allIds: Object.keys(entitiesById)
-			};
+		const { meta, payload } = action;
+		if (meta.entityName === name) {
+			const newState = { ...state };
+			newState.requests = newState.requests.filter(request => request !== meta.requestId);
+			newState.byId = mergeEntities(state.byId, payload);
+			newState.allIds = Object.keys(newState.byId);
+			const receivedIds = Object.keys(payload);
+			newState.fetchingIds = newState.fetchingIds.filter(id => !receivedIds.includes(id));
+			return newState;
 		}
 		return state;
 	}
